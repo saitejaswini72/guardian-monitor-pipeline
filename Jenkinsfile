@@ -18,12 +18,16 @@ pipeline {
         }
 
         stage('Code Quality') {
-            steps {
-                withSonarQubeEnv('My_Sonar_Qube') {
-                    bat 'My_SonarQube_Scanner'
-                }
+    steps {
+        withSonarQubeEnv('My_Sonar_Qube') {
+            script {
+                def scannerHome = tool 'My_SonarQube_Scanner'
+                bat "${scannerHome}\\bin\\sonar-scanner"
             }
         }
+    }
+}
+
 
         stage('Security') {
             steps {
