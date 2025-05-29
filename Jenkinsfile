@@ -20,7 +20,7 @@ pipeline {
         stage('Code Quality') {
             steps {
                 withSonarQubeEnv('My_Sonar_Qube') {
-                    bat 'My_SonarQube-Scanner'
+                    bat 'My_SonarQube_Scanner'
                 }
             }
         }
