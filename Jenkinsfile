@@ -19,7 +19,9 @@ pipeline {
 
         stage('Code Quality') {
             steps {
-                bat 'echo Simulating code quality scan (ESLint)'
+                withSonarQubeEnv('My_Sonar_Qube') {
+                    bat 'My_SonarQube-Scanner'
+                }
             }
         }
 
