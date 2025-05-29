@@ -22,7 +22,7 @@ pipeline {
         withSonarQubeEnv('My_Sonar_Qube') {
             script {
                 def scannerHome = tool 'My_SonarQube_Scanner'
-                bat "${scannerHome}\\bin\\sonar-scanner"
+                bat "\"${scannerHome}\\bin\\sonar-scanner\""
             }
         }
     }
