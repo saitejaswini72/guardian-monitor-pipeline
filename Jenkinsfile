@@ -65,15 +65,11 @@ pipeline {
                         returnStatus: true
                     )
                     if (healthCheck != 0) {
-                        emailext (
-                            subject: "Issue in Guardian Monitor!",
-                            body: "The app failed the health check on the /api/health endpoint. Please check the issue.",
-                            to: "gajjisaitejaswini@gmail.com"
-                        )
-                        error("Health check failed! Notification sent.")
+                        echo "Issue in Guardian Monitor!"
+                        error("Health check failed! Monitoring failed.")
                     } else {
-                        echo "App is healthy. Monitoring passed successfully!."
-                     }
+                        echo "App is healthy. Monitoring passed successfully."
+                    }
                 }
             }
         }
